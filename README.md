@@ -70,7 +70,7 @@ python3 build_all.py    # 21개 페이지 재생성
 ### 로고
 
 `assets/img/logo-dark.png`(밝은 배경용) / `logo-light.png`(어두운 배경용) 두 벌을 쓰며,
-테마에 따라 CSS가 자동으로 바꿉니다. 원본은 `HF_LOGO.png` 한 벌에서 색만 바꿔 생성했습니다.
+테마에 따라 CSS가 자동으로 바꿉니다. 원본은 `../ref/HF_LOGO.png` 한 벌에서 색만 바꿔 생성했습니다.
 
 ## 로컬에서 보기
 
