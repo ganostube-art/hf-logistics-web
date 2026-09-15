@@ -3,6 +3,26 @@
 주식회사 에이치에프로지스틱스(HF LOGISTICS CO., LTD.) 공식 홈페이지.
 빌드 도구 없이 동작하는 정적 사이트입니다.
 
+## 다국어
+
+한국어 · 영어 · 중국어(간체) 3개 언어로 제공합니다.
+
+| 언어 | 주소 | 폴더 |
+|---|---|---|
+| 한국어 | `hflogis.com/` | 루트 |
+| English | `hflogis.com/en/` | `en/` |
+| 中文 | `hflogis.com/zh/` | `zh/` |
+
+**HTML을 직접 고치지 마세요.** 21개 페이지는 `site-src/` 의 파이썬 스크립트가 생성합니다.
+
+```bash
+cd site-src
+python3 build_all.py    # 21개 페이지 재생성
+```
+
+문구 위치는 `GLOSSARY.md` 하단을 참고하세요.
+전문용어 검수 목록도 `GLOSSARY.md` 에 있습니다.
+
 ## 구성
 
 | 파일 | 내용 |

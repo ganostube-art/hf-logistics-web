@@ -706,3 +706,17 @@ table.data tr:last-child td{border-bottom:0}
   .btn{padding:12px 18px}
   .cta .btn{flex:1 1 auto;justify-content:center}  /* 버튼이 한 줄에 안 맞으면 꽉 차게 */
 }
+
+/* 언어 전환 (상단 유틸리티 바) */
+.utility .langs{display:inline-flex;align-items:center;gap:6px}
+.utility .langs a,.utility .langs .cur{
+  font-family:var(--ff-mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+}
+.utility .langs a{color:#8C9CBC;text-decoration:none;transition:color .15s ease}
+.utility .langs a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.utility .langs .cur{color:#fff;font-weight:600}
+.utility .langs i{color:#4A5876;font-style:normal;font-size:9px}
+@media (max-width:560px){
+  .utility .wrap > span:first-child{display:none}   /* 좁은 화면에선 전화·언어만 */
+  .utility .wrap{justify-content:flex-end}
+}

@@ -167,29 +167,39 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* 견적 요청 폼 — 백엔드 연결 전까지 메일 클라이언트로 전달 */
+  /* 견적 요청 폼 — 백엔드 연결 전까지 메일 클라이언트로 전달.
+     문구는 <html lang> 을 보고 고릅니다. */
   var form = document.getElementById('quote-form');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var d = new FormData(form);
-      var get = function (k) { return (d.get(k) || '').toString().trim(); };
-      var body = [
-        '회사명: ' + get('company'),
-        '담당자: ' + get('name'),
-        '연락처: ' + get('phone'),
-        '이메일: ' + get('email'),
-        '문의 유형: ' + get('type'),
-        '출발지 / 품목: ' + get('cargo'),
-        '',
-        '내용',
-        get('message')
-      ].join('\n');
-      location.href = 'mailto:info@hflogistics.co.kr'
-        + '?subject=' + encodeURIComponent('[견적·문의] ' + (get('company') || '홈페이지 접수'))
-        + '&body=' + encodeURIComponent(body);
-      var msg = document.getElementById('quote-status');
-      if (msg) msg.textContent = '메일 작성 창을 열었습니다. 전송이 되지 않으면 032-888-0824로 연락 주십시오.';
-    });
+    var L = (document.documentElement.lang || 'ko').slice(0, 2);
+    var T = {
+      ko: {co:'회사명', nm:'담당자', ph:'연락처', em:'이메일', ty:'문의 유형', cg:'출발지 / 품목',
+           ms:'내용', sub:'[견적·문의]', anon:'홈페이지 접수',
+           ok:'메일 작성 창을 열었습니다. 전송이 되지 않으면 032-888-0824로 연락 주십시오.'},
+      en: {co:'Company', nm:'Contact', ph:'Phone', em:'Email', ty:'Enquiry type', cg:'Origin / Cargo',
+           ms:'Message', sub:'[Quote enquiry]', anon:'Website enquiry',
+           ok:'Your email client should now be open. If the message does not send, please call +82-32-888-0824.'},
+      zh: {co:'公司名称', nm:'联系人', ph:'联系电话', em:'邮箱', ty:'咨询类型', cg:'起运地 / 品名',
+           ms:'咨询内容', sub:'[报价咨询]', anon:'网站咨询',
+           ok:'已打开邮件撰写窗口。若无法发送，请致电 +82-32-888-0824。'}
+    }[L] || null;
+    if (T) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var d = new FormData(form);
+        var g = function (k) { return (d.get(k) || '').toString().trim(); };
+        var body = [
+          T.co + ': ' + g('company'), T.nm + ': ' + g('name'),
+          T.ph + ': ' + g('phone'), T.em + ': ' + g('email'),
+          T.ty + ': ' + g('type'), T.cg + ': ' + g('cargo'),
+          '', T.ms, g('message')
+        ].join('\n');
+        location.href = 'mailto:info@hflogis.com'
+          + '?subject=' + encodeURIComponent(T.sub + ' ' + (g('company') || T.anon))
+          + '&body=' + encodeURIComponent(body);
+        var msg = document.getElementById('quote-status');
+        if (msg) msg.textContent = T.ok;
+      });
+    }
   }
 })();
