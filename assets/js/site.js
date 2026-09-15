@@ -24,6 +24,45 @@
     el.textContent = new Date().getFullYear();
   });
 
+
+  /* 스크롤 등장 — 모션을 끈 사용자에게는 적용하지 않습니다.
+     클래스를 JS가 붙이므로, JS가 없으면 처음부터 전부 보입니다. */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    var blocks = document.querySelectorAll(
+      '.sec-head, .facts .cell, .risks > *, .flow > .s, .svcs > *, ' +
+      '.reasons > .rr, .hubs > .hub, .divs > .d, .split > .c, ' +
+      '.contact > div, .board-scroll, .nodes, .hist, .steps'
+    );
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    Array.prototype.forEach.call(blocks, function (el) {
+      /* 같은 부모 안에서의 순서만큼 지연을 줘 한 줄씩 흐르게 */
+      var sibs = el.parentNode ? el.parentNode.children : [el];
+      var i = Array.prototype.indexOf.call(sibs, el);
+      el.style.transitionDelay = Math.min(i * 55, 330) + 'ms';
+      el.classList.add('hf-rv');
+      io.observe(el);
+    });
+  }
+
+  /* 스크롤 시 헤더 분리 */
+  var head = document.querySelector('.masthead');
+  if (head) {
+    var onScroll = function () {
+      head.classList.toggle('scrolled', window.scrollY > 8);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   /* 견적 요청 폼 — 백엔드 연결 전까지 메일 클라이언트로 전달 */
   var form = document.getElementById('quote-form');
   if (form) {

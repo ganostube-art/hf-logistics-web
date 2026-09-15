@@ -72,6 +72,7 @@
 </defs>
 <rect width="400" height="250" fill="#131C34"/>
 <rect width="400" height="250" fill="url(#g-sea)"/>
+<g class="ship">
 <g fill="none" stroke="#7EA0F2" stroke-width="1.4" stroke-linejoin="round">
   <!-- 선체 -->
   <path d="M52 152 L372 152 L352 186 L58 186 Z" fill="#1B2745"/>
@@ -108,14 +109,15 @@
   <path d="M112 100l5 -3M112 100l5 3M140 100l-5 -3M140 100l-5 3" fill="none"/>
 </g>
 <text x="126" y="92" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">40' HC</text>
+</g>
 <!-- 흘수선 · 수면 -->
 <g stroke="#7EA0F2" stroke-width="1.1" stroke-opacity=".55">
   <path d="M0 186h400"/>
 </g>
-<g stroke="#7EA0F2" stroke-width="1" stroke-opacity=".3" stroke-linecap="round">
-  <path d="M20 198h54M96 198h38M158 198h70M252 198h44M318 198h62" stroke-dasharray="1 7"/>
-  <path d="M40 210h44M108 210h62M196 210h36M256 210h78M352 210h30" stroke-dasharray="1 7"/>
-  <path d="M14 222h70M110 222h40M176 222h84M286 222h52" stroke-dasharray="1 7"/>
+<g stroke="#7EA0F2" stroke-width="1" stroke-opacity=".3" stroke-linecap="round" fill="none">
+  <path class="w1" d="M-40 198H440" stroke-dasharray="2 9"/>
+  <path class="w2" d="M-40 210H440" stroke-dasharray="2 11"/>
+  <path class="w3" d="M-40 222H440" stroke-dasharray="2 8"/>
 </g>
 <text x="20" y="40" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">SEA FREIGHT / FCL · LCL</text>
 </svg></div>
@@ -135,6 +137,7 @@
 </defs>
 <rect width="400" height="250" fill="#131C34"/>
 <rect width="400" height="250" fill="url(#g-air)"/>
+<g class="plane">
 <!-- 수평 안정판 -->
 <path d="M330 118 L376 108 L378 115 L334 125 Z" fill="#22305A" stroke="#7EA0F2" stroke-width="1.2" stroke-linejoin="round"/>
 <!-- 수직 미익 -->
@@ -164,13 +167,15 @@
   <path d="M300 176 L340 176 L346 184 L346 200 L300 200 Z"/>
   <path d="M300 176 L300 200" stroke-opacity=".6"/>
 </g>
+</g>
 <text x="323" y="213" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">ULD</text>
 <!-- 지면 -->
 <g stroke="#7EA0F2" stroke-opacity=".45" stroke-width="1.1">
   <path d="M0 200h400"/>
 </g>
-<g stroke="#7EA0F2" stroke-opacity=".28" stroke-width="1" stroke-dasharray="1 8" stroke-linecap="round">
-  <path d="M10 212h380M10 224h380"/>
+<g stroke="#7EA0F2" stroke-opacity=".28" stroke-width="1" stroke-linecap="round" fill="none">
+  <path class="w1" d="M-40 214H440" stroke-dasharray="2 10"/>
+  <path class="w2" d="M-40 226H440" stroke-dasharray="2 8"/>
 </g>
 <text x="20" y="40" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">AIR FREIGHT / INCHEON FTZ</text>
 </svg></div>
@@ -190,6 +195,7 @@
 </defs>
 <rect width="400" height="250" fill="#131C34"/>
 <rect width="400" height="250" fill="url(#g-hvy)"/>
+<g class="rig">
 <!-- 저상 트레일러 -->
 <g stroke="#7EA0F2" stroke-width="1.4" fill="#1B2745" stroke-linejoin="round">
   <path d="M34 158 L66 158 L74 176 L300 176 L308 164 L360 164 L360 188 L74 188 L34 188 Z"/>
@@ -222,6 +228,7 @@
   <path d="M138 129 L148 124 L156 140 L142 144 Z"/>
 </g>
 <circle cx="122" cy="96" r="3" fill="#131C34" stroke="#7EA0F2" stroke-width="1"/>
+</g>
 <!-- 치수선 : 전고 -->
 <g stroke="#7EA0F2" stroke-width=".9" stroke-opacity=".8" fill="none">
   <path d="M92 92v116" stroke-dasharray="4 4"/>
@@ -239,6 +246,10 @@
 <text x="197" y="220" text-anchor="middle" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">전장 L</text>
 <!-- 지면 -->
 <g stroke="#7EA0F2" stroke-opacity=".45" stroke-width="1.1"><path d="M0 208h400"/></g>
+<g stroke="#7EA0F2" stroke-opacity=".26" stroke-width="1" stroke-linecap="round" fill="none">
+  <path class="w1" d="M-40 234H440" stroke-dasharray="3 9"/>
+  <path class="w2" d="M-40 244H440" stroke-dasharray="3 12"/>
+</g>
 <text x="20" y="40" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:8px;letter-spacing:.14em;fill:#7EA0F2">HEAVY CARGO / RO-RO · FLAT RACK</text>
 </svg></div>
       <figcaption>
