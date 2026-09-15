@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """페이지 뼈대 — 언어별로 head / 헤더 / 푸터를 생성합니다."""
 
-import io, os, hashlib
-from common import META, UTILITY, NAV, QUOTE_BTN, MENU_BTN, NAV_ARIA, LANG_ARIA, COMPANY, FOOT, LANGS
+import io, os, json, hashlib
+from common import (META, UTILITY, NAV, QUOTE_BTN, MENU_BTN, NAV_ARIA, LANG_ARIA,
+                    COMPANY, FOOT, LANGS, MGR)
 
 # 이 스크립트의 상위 폴더가 사이트 루트입니다.
 OUT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -17,6 +18,67 @@ def asset_ver():
         if os.path.exists(p):
             h.update(open(p, "rb").read())
     return h.hexdigest()[:8]
+
+
+def canon(lang, page):
+    """정규 주소. 홈은 index.html 을 떼고 디렉터리 형태로 씁니다 — 공유되는 주소와
+    색인되는 주소가 hflogis.com 하나로 모이도록."""
+    d = META[lang]["dir"]
+    return "%s/%s" % (SITE_URL, d if page == "index.html" else d + page)
+
+
+def og_ver():
+    """OG 이미지 해시 — 카드 이미지를 바꿔도 스크래퍼가 옛 이미지를 물고 있지 않도록."""
+    h = hashlib.sha1()
+    for l in LANGS:
+        p = os.path.join(OUT, "assets", "img", "og-%s.png" % l)
+        if os.path.exists(p):
+            h.update(open(p, "rb").read())
+    return h.hexdigest()[:8]
+
+
+# 공유 카드 이미지의 대체 텍스트
+OG_ALT = {
+    "ko": "HF 로지스틱스 — 국제물류주선 · 중장비 운반",
+    "en": "HF Logistics — freight forwarding and heavy cargo transport",
+    "zh": "HF物流 — 国际物流运输 · 重型设备运输",
+}
+
+
+def og_title(lang, page, title):
+    """카드 제목. 사이트명은 og:site_name 이 따로 들고 있으니 꼬리표를 뗍니다."""
+    c = COMPANY[lang]
+    if page == "index.html":
+        return c["name"]
+    tail = " — " + c["short"]
+    return title[:-len(tail)] if title.endswith(tail) else title
+
+
+def org_jsonld(lang, desc):
+    """홈에만 넣는 Organization 스키마 — 검색 결과에 회사명·로고·연락처가 붙습니다."""
+    c = META[lang]
+    co = COMPANY[lang]
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": co["name"],
+        "alternateName": co["short"],
+        "url": SITE_URL + "/" + c["dir"],
+        "logo": SITE_URL + "/assets/img/logo-dark.png",
+        "image": "%s/assets/img/og-%s.png" % (SITE_URL, lang),
+        "description": desc,
+        "telephone": "+82-32-888-0824",
+        "faxNumber": "+82-32-888-0825",
+        "email": MGR["email"],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": co["addr"],
+            "addressLocality": {"ko": "인천광역시", "en": "Incheon", "zh": "仁川"}[lang],
+            "addressCountry": "KR",
+        },
+    }
+    return ('<script type="application/ld+json">%s</script>\n'
+            % json.dumps(data, ensure_ascii=False, separators=(",", ":")))
 
 
 def up(lang):
@@ -34,8 +96,11 @@ def head(lang, page, title, desc):
     u = up(lang)
     v = asset_ver()
     alts = "\n".join(
-        '<link rel="alternate" hreflang="%s" href="%s/%s%s">' %
-        (META[l]["htmllang"], SITE_URL, META[l]["dir"], page) for l in LANGS)
+        '<link rel="alternate" hreflang="%s" href="%s">' % (META[l]["htmllang"], canon(l, page))
+        for l in LANGS)
+    oglocs = "\n".join('<meta property="og:locale:alternate" content="%s">' % META[l]["oglocale"]
+                       for l in LANGS if l != lang)
+    jsonld = org_jsonld(lang, desc) if page == "index.html" else ""
     return """<!doctype html>
 <html lang="%(hl)s">
 <head>
@@ -43,9 +108,30 @@ def head(lang, page, title, desc):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>%(title)s</title>
 <meta name="description" content="%(desc)s">
-<link rel="canonical" href="%(site)s/%(dir)s%(page)s">
+<link rel="canonical" href="%(canon)s">
 %(alts)s
-<link rel="alternate" hreflang="x-default" href="%(site)s/%(page)s">
+<link rel="alternate" hreflang="x-default" href="%(xdef)s">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="%(short)s">
+<meta property="og:url" content="%(canon)s">
+<meta property="og:title" content="%(ogtitle)s">
+<meta property="og:description" content="%(desc)s">
+<meta property="og:image" content="%(site)s/assets/img/og-%(lang)s.png?v=%(ogv)s">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="%(ogalt)s">
+<meta property="og:locale" content="%(ogloc)s">
+%(oglocs)s
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="%(ogtitle)s">
+<meta name="twitter:description" content="%(desc)s">
+<meta name="twitter:image" content="%(site)s/assets/img/og-%(lang)s.png?v=%(ogv)s">
+<meta name="twitter:image:alt" content="%(ogalt)s">
+
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#131C34">
 <link rel="icon" href="%(u)sassets/img/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="%(u)sassets/img/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,10 +139,12 @@ def head(lang, page, title, desc):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=%(font)s&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="%(u)sassets/css/site.css?v=%(v)s">
 <style>:root{--ff-sans:%(family)s}body{word-break:%(wb)s}</style>
-</head>
+%(jsonld)s</head>
 <body>
 """ % dict(hl=m["htmllang"], title=title, desc=desc, site=SITE_URL, dir=m["dir"], page=page,
-           alts=alts, u=u, font=m["font"], family=m["family"], wb=m["wordbreak"], v=v)
+           alts=alts, u=u, canon=canon(lang, page), xdef=canon("ko", page), font=m["font"], family=m["family"], wb=m["wordbreak"], v=v,
+           lang=lang, short=COMPANY[lang]["short"], ogtitle=og_title(lang, page, title),
+           ogalt=OG_ALT[lang], ogloc=m["oglocale"], oglocs=oglocs, ogv=og_ver(), jsonld=jsonld)
 
 
 def brand(lang):

@@ -10,15 +10,15 @@ LANGS = ["ko", "en", "zh"]
 
 # 언어별 표기 · 폰트 · 줄바꿈 규칙
 META = {
-    "ko": {"label": "KOR", "htmllang": "ko", "dir": "",
+    "ko": {"label": "KOR", "htmllang": "ko", "dir": "", "oglocale": "ko_KR",
            "font": "Noto+Sans+KR:wght@400;500;700;800",
            "family": '"Noto Sans KR","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif',
            "wordbreak": "keep-all"},
-    "en": {"label": "ENG", "htmllang": "en", "dir": "en/",
+    "en": {"label": "ENG", "htmllang": "en", "dir": "en/", "oglocale": "en_US",
            "font": "Inter:wght@400;500;600;700;800",
            "family": '"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif',
            "wordbreak": "normal"},
-    "zh": {"label": "中文", "htmllang": "zh-Hans", "dir": "zh/",
+    "zh": {"label": "中文", "htmllang": "zh-Hans", "dir": "zh/", "oglocale": "zh_CN",
            "font": "Noto+Sans+SC:wght@400;500;700;900",
            "family": '"Noto Sans SC","PingFang SC","Microsoft YaHei",-apple-system,sans-serif',
            "wordbreak": "normal"},

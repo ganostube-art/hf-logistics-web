@@ -21,6 +21,28 @@ python3 build_all.py    # 21개 페이지 재생성
 ```
 
 문구 위치는 `GLOSSARY.md` 하단을 참고하세요.
+
+## 공유 카드 (OG)
+
+카톡·슬랙·페이스북에 주소를 붙이면 뜨는 미리보기 카드입니다.
+`assets/img/og-{ko,en,zh}.png` (1200×630) 를 씁니다.
+
+```bash
+cd site-src
+python3 ogimage.py      # 카드 이미지 3장 재생성
+python3 build_all.py    # 이미지 해시가 바뀌므로 HTML도 같이
+```
+
+카드 문구는 `ogimage.py` 의 `CARD` 에 있습니다. macOS 시스템 폰트를
+쓰므로 다른 환경에서 돌리려면 `FONTS` 경로를 바꿔야 합니다.
+
+로고 원본이 360×96 저해상도라 카드에는 HF 심볼만 잘라 쓰고 회사명은
+글자로 조판했습니다. 고해상도 로고를 받으면 `ogimage.py` 의 `symbol()`
+을 손보면 됩니다.
+
+> 카드를 바꾼 뒤에는 각 플랫폼 캐시를 비워야 새 이미지가 보입니다.
+> 카카오 [디버거](https://developers.kakao.com/tool/debugger/sharing) ·
+> 페이스북 [Sharing Debugger](https://developers.facebook.com/tools/debug/)
 전문용어 검수 목록도 `GLOSSARY.md` 에 있습니다.
 
 ## 구성

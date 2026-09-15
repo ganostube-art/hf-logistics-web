@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hflogis.com/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/index.html"/>
+    <loc>https://hflogis.com/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/"/>
   </url>
   <url>
     <loc>https://hflogis.com/services.html</loc>
@@ -50,11 +50,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/contact.html"/>
   </url>
   <url>
-    <loc>https://hflogis.com/en/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/index.html"/>
+    <loc>https://hflogis.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/"/>
   </url>
   <url>
     <loc>https://hflogis.com/en/services.html</loc>
@@ -99,11 +99,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/contact.html"/>
   </url>
   <url>
-    <loc>https://hflogis.com/zh/index.html</loc>
-    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/index.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/index.html"/>
-    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/index.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/index.html"/>
+    <loc>https://hflogis.com/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://hflogis.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hflogis.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://hflogis.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hflogis.com/"/>
   </url>
   <url>
     <loc>https://hflogis.com/zh/services.html</loc>
