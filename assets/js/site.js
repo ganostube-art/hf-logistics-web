@@ -25,6 +25,80 @@
   });
 
 
+
+  /* 히어로 슬라이더 — 해상 · 항공 · 중장비
+     JS가 .js-on 을 붙이기 전에는 첫 슬라이드가 그대로 보이므로,
+     스크립트가 막혀도 히어로가 비지 않습니다. */
+  (function () {
+    var box = document.getElementById('slides');
+    if (!box) return;
+    var slides = box.querySelectorAll('.slide');
+    var tabs = document.querySelectorAll('.hdot');
+    if (slides.length < 2) return;
+
+    var HOLD = 6500;
+    var slow = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var cur = 0, timer = null, paused = false;
+
+    box.classList.add('js-on');
+
+    var show = function (i) {
+      cur = (i + slides.length) % slides.length;
+      Array.prototype.forEach.call(slides, function (el, k) {
+        el.classList.toggle('is-active', k === cur);
+        el.setAttribute('aria-hidden', k === cur ? 'false' : 'true');
+      });
+      Array.prototype.forEach.call(tabs, function (t, k) {
+        var on = k === cur;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.setAttribute('tabindex', on ? '0' : '-1');
+        var bar = t.querySelector('.bar');
+        if (!bar) return;
+        /* 진행 막대를 0에서 다시 채웁니다 */
+        bar.style.transition = 'none';
+        bar.style.width = '0';
+        if (on && !slow && !paused) {
+          void bar.offsetWidth;
+          bar.style.transition = 'width ' + HOLD + 'ms linear';
+          bar.style.width = '100%';
+        }
+      });
+    };
+
+    var stop = function () {
+      if (timer) { clearInterval(timer); timer = null; }
+    };
+    var play = function () {
+      stop();
+      if (slow) return;
+      timer = setInterval(function () { show(cur + 1); }, HOLD);
+    };
+
+    var go = function (i) { show(i); play(); };
+
+    Array.prototype.forEach.call(tabs, function (t, k) {
+      t.addEventListener('click', function () { go(k); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1); tabs[(cur) % tabs.length].focus(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1); tabs[(cur) % tabs.length].focus(); }
+      });
+    });
+
+    /* 읽는 동안에는 넘어가지 않게 */
+    var hold = function () { paused = true; stop(); };
+    var release = function () { paused = false; show(cur); play(); };
+    box.addEventListener('mouseenter', hold);
+    box.addEventListener('mouseleave', release);
+    box.addEventListener('focusin', hold);
+    box.addEventListener('focusout', release);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else if (!paused) { show(cur); play(); }
+    });
+
+    show(0);
+    play();
+  })();
+
   /* 스크롤 등장 · 숫자 카운트 · 스케줄 행 캐스케이드
      모션을 끈 사용자에게는 적용하지 않습니다.
      클래스를 JS가 붙이므로, JS가 없으면 처음부터 전부 보입니다. */
@@ -58,8 +132,9 @@
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         e.target.classList.add('in');
-        var num = e.target.querySelector && e.target.querySelector('.v');
-        if (num) countUp(num);
+        if (e.target.querySelectorAll) {
+          Array.prototype.forEach.call(e.target.querySelectorAll('.v'), countUp);
+        }
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
@@ -75,9 +150,8 @@
     };
 
     stagger(document.querySelectorAll(
-      '.sec-head, .facts .cell, .risks > *, .flow > .s, .svcs > *, ' +
-      '.reasons > .rr, .hubs > .hub, .divs > .d, .split > .c, ' +
-      '.contact > div, .nodes, .hist, .steps, .checks'
+      '.sec-head, .facts .grid, .risks, .flow, .svcs, .reasons, ' +
+      '.hubs, .divs, .split, .contact, .nodes, .hist, .steps, .checks'
     ), 'hf-rv', 70, 420);
 
     stagger(document.querySelectorAll('table.data tbody tr'), 'hf-row', 60, 480);
