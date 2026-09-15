@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """문의처 — 견적 폼 · 오시는 길"""
 import shell
-from common import LANGS, COMPANY, CONTACT_BLOCK
+from common import LANGS, COMPANY, CONTACT_BLOCK, MGR
 import c_index as CI
 
 PAGE = "contact.html"
@@ -100,7 +100,8 @@ def build(lang):
         <div class="row"><dt>%s</dt><dd>%s</dd></div>
         <div class="row"><dt>%s</dt><dd class="mono"><a href="tel:032-888-0824" style="text-decoration:none">032-888-0824</a></dd></div>
         <div class="row"><dt>%s</dt><dd class="mono">032-888-0825</dd></div>
-        <div class="row"><dt>%s</dt><dd>%s<br><span class="mono"><a href="tel:010-5248-0066" style="text-decoration:none">010-5248-0066</a></span></dd></div>
+        <div class="row"><dt>%s</dt><dd>%s<br><span class="mono"><a href="tel:%s" style="text-decoration:none">%s</a></span></dd></div>
+        <div class="row"><dt>%s</dt><dd class="mono"><a href="mailto:%s">%s</a></dd></div>
         <div class="row"><dt>%s</dt><dd>%s</dd></div>
       </dl>
       <p class="eyebrow dim">%s</p>
@@ -126,7 +127,9 @@ def build(lang):
   </div>
 </div></section>
 """ % (m["q"][0], m["q"][1], m["q"][2], m["qnote"],
-       cb["addr"], co["addr"], cb["tel"], cb["fax"], cb["mgr"], cb["mgrname"],
+       cb["addr"], co["addr"], cb["tel"], cb["fax"],
+       cb["mgr"], cb["mgrname"], MGR["phone"], MGR["phone"],
+       cb["email"], MGR["email"], MGR["email"],
        m["hours"][0], m["hours"][1], cb["ask"], asks,
        f["company"], f["name"], f["phone"], f["email"], f["type"], opts,
        f["cargo"], f["ph_cargo"], f["msg"], f["ph_msg"], f["submit"], f["note"])

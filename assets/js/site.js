@@ -194,7 +194,7 @@
           T.ty + ': ' + g('type'), T.cg + ': ' + g('cargo'),
           '', T.ms, g('message')
         ].join('\n');
-        location.href = 'mailto:info@hflogis.com'
+        location.href = 'mailto:dydw0625@nate.com'
           + '?subject=' + encodeURIComponent(T.sub + ' ' + (g('company') || T.anon))
           + '&body=' + encodeURIComponent(body);
         var msg = document.getElementById('quote-status');

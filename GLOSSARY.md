@@ -92,7 +92,7 @@
 |---|---|---|---|
 | 주식회사 에이치에프로지스틱스 | HF LOGISTICS CO., LTD. | HF物流株式会社 | **중문 표기 확정 필요** |
 | 대표이사 안규철 | Ahn Gyu-cheol | 安圭哲 | 여권 영문 표기 확인 필요 |
-| 담당 김두권 | Kim Doo-kwon | 金斗权 | 명함 영문 표기 확인 필요 |
+| 담당 임민지 부장 | Lim Min-ji, General Manager | Lim Min-ji 部长 | **명함 영문 표기 확인 필요.** 중문판은 한자 이름을 임의로 만들지 않고 로마자로 두었습니다 — 한자 표기를 알려주시면 반영하겠습니다 |
 | ㈜스카이국제운송 | Sky International Transport | Sky国际运输 | 협력사 공식 영문명 확인 필요 |
 | 삼복로지스틱㈜ | Sambok Logistic | 三福物流 | 협력사 공식 영문명 확인 필요 |
 | CJ대한통운 | CJ Logistics | CJ大韩通运 | 공식 영문명 |
