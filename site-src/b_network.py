@@ -31,6 +31,8 @@ M = {
          ["2002년 설립 · 임직원 45명 (본사 기준)","자유무역지역 내 보세 상태 보관","보세운송 · 통관 · 하역 일괄 처리",
           "특수화물 운송 · 보수작업 · 3PL &amp; 4PL","ADT캡스 경비 시스템 · CCTV 70대 이상 상시 운영",
           "매주 수요일 정기 재고조사로 수량 차이 관리","화물 반출입 · 보세운송 신청 · 적하 조회 프로그램 운영"])],
+  shots=[("fac-sky.jpg","㈜스카이국제운송 인천항 보세창고 전경 — SKY LOGIS 간판이 붙은 창고 건물과 반입 작업","사진 제공 · ㈜스카이국제운송"),
+         ("fac-sambok.jpg","삼복로지스틱㈜ 인천공항 자유무역지역 창고 반입구 — 파렛트 화물이 놓인 상하차 구역","사진 제공 · 삼복로지스틱㈜")],
   s3=("Fleet","국내 운송 차량 운용","Vehicles"),
   s3note="협력사 삼복로지스틱㈜ 보유 기준. 냉장 · 냉동 및 무진동 차량을 포함해 화물 특성에 맞춰 배차합니다.",
   vcols=["Class 톤급","일반","냉장 · 냉동","리프트","무진동","합계"],
@@ -64,6 +66,8 @@ M = {
          ["Founded 2002 · 45 staff at head office","Bonded storage inside the Free Trade Zone","Bonded transport, clearance and handling as one service",
           "Special cargo transport · reconditioning · 3PL &amp; 4PL","ADT Caps security system · more than 70 CCTV cameras",
           "Scheduled stock count every Wednesday to control discrepancies","In-house systems for cargo movements, bonded transport filing and manifest lookup"])],
+  shots=[("fac-sky.jpg","Sky International Transport bonded warehouse at Incheon Port, seen from above","Photo: Sky International Transport"),
+         ("fac-sambok.jpg","Loading bays at the Sambok Logistic warehouse in the Incheon Airport Free Trade Zone","Photo: Sambok Logistic")],
   s3=("Fleet","Domestic transport fleet","Vehicles"),
   s3note="Held by our partner Sambok Logistic. Refrigerated, frozen and air-ride vehicles are assigned according to the nature of the cargo.",
   vcols=["Class","Standard","Refrigerated","Lift-gate","Air-ride","Total"],
@@ -97,6 +101,8 @@ M = {
          ["2002年成立 · 总部员工45名","自由贸易区内保税状态存储","保税运输 · 通关 · 装卸一体化处理",
           "特种货物运输 · 整理作业 · 3PL与4PL","ADT Caps安保系统 · 70台以上摄像头全天运行",
           "每周三定期盘点，管控数量差异","自有货物进出库、保税运输申报与舱单查询系统"])],
+  shots=[("fac-sky.jpg","Sky国际运输仁川港保税仓库外景","照片提供 · Sky国际运输"),
+         ("fac-sambok.jpg","三福物流仁川机场自由贸易区仓库装卸区","照片提供 · 三福物流")],
   s3=("Fleet","韩国境内运输车辆","Vehicles"),
   s3note="以合作方三福物流的保有量为准。包含冷藏冷冻车与无振动车，按货物特性调配。",
   vcols=["吨位 Class","普通","冷藏 · 冷冻","尾板","无振动","合计"],
@@ -131,10 +137,15 @@ def build(lang):
 </div></section>
 """ % (m["s1"][0], m["s1"][1], m["s1"][2], m["s1note"], nd, wh)
 
-    hubs = "".join('<div class="hub"><div class="kind"><span class="en">%s</span>'
+    # 협력사 시설 사진 — 소유가 협력사이므로 카드마다 출처를 답니다.
+    shot = ('<figure class="shot"><img src="%sassets/img/%s" alt="%s" width="1280" height="720" '
+            'loading="lazy" decoding="async"><figcaption>%s</figcaption></figure>')
+    hubs = "".join('<div class="hub">' + (shot % (shell.up(lang), f, alt, cr)) +
+                   '<div class="kind"><span class="en">%s</span>'
                    '<span class="partner"><b>%s</b></span></div><h3>%s</h3>'
                    '<p class="addr">%s</p><ul>%s</ul></div>'
-                   % (a, b_, c, d, "".join("<li>%s</li>" % x for x in e)) for a, b_, c, d, e in m["hubs"])
+                   % (a, b_, c, d, "".join("<li>%s</li>" % x for x in e))
+                   for (a, b_, c, d, e), (f, alt, cr) in zip(m["hubs"], m["shots"]))
     b += """
 <section class="sec panel"><div class="wrap">
   <div class="sec-head"><div class="t"><p class="eyebrow">%s</p>

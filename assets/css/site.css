@@ -375,6 +375,14 @@ table.data tr:last-child td{border-bottom:0}
 .hub ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);padding-top:14px}
 .hub ul li{position:relative;padding-left:15px;font-size:13px;color:var(--ink-2);line-height:1.62}
 .hub ul li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--indigo)}
+/* 협력사 시설 사진 — 카드 위쪽 여백을 물고 가장자리까지 채웁니다.
+   사진 소유가 협력사라 캡션(출처)은 항상 따라붙습니다. */
+.hub .shot{margin:calc(-1 * clamp(24px,3vw,32px)) calc(-1 * clamp(24px,3vw,32px)) 0;
+           display:flex;flex-direction:column;gap:9px}
+.hub .shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;
+               background:var(--panel-2)}
+.hub .shot figcaption{padding:0 clamp(24px,3vw,32px);font-size:11.5px;color:var(--muted);
+                      letter-spacing:.01em}
 @media (max-width:860px){.hubs{grid-template-columns:1fr}}
 
 /* 거점 목록 */
