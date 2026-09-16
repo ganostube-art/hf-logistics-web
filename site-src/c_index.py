@@ -11,7 +11,7 @@ DESC = {
 # 히어로 3슬라이드
 HERO = {
  "ko": [
-  {"eb":"Sea Freight / FCL · LCL", "h":"컨테이너 한 박스도<br><em>정기 스케줄</em>에 싣습니다",
+  {"eb":"Sea Freight / FCL · LCL", "h":"모든 화물을<br><em>정기 스케줄</em>에 싣습니다",
    "p":"중국 위해 집화 창고에서 한국행 화물을 모아 혼재합니다. 소량 화물도 매주 정해진 마감에 맞춰 인천항 보세창고로 들어옵니다. 선복 확보와 선적 서류를 한 창구에서 관리합니다.",
    "a1":"부킹 · 견적 요청", "a2":"해상운송 자세히", "l2":"services.html#forwarding",
    "tab":"해상운송 FCL · LCL"},
@@ -25,7 +25,7 @@ HERO = {
    "tab":"중장비 · 중량물 운송"},
  ],
  "en": [
-  {"eb":"Sea Freight / FCL · LCL", "h":"Even a single box<br>ships on a <em>fixed schedule</em>",
+  {"eb":"Sea Freight / FCL · LCL", "h":"All cargo moves<br>on a <em>fixed schedule</em>",
    "p":"We consolidate Korea-bound cargo at our Weihai warehouse in China. Small shipments make the weekly cut-off and arrive at our bonded warehouse in Incheon Port. Space booking and shipping documents are handled through one desk.",
    "a1":"Book or request a quote", "a2":"About sea freight", "l2":"services.html#forwarding",
    "tab":"Sea Freight FCL · LCL"},
@@ -39,7 +39,7 @@ HERO = {
    "tab":"Heavy Cargo Transport"},
  ],
  "zh": [
-  {"eb":"Sea Freight / FCL · LCL", "h":"哪怕只有一箱货，<br>也能搭上<em>定期班期</em>",
+  {"eb":"Sea Freight / FCL · LCL", "h":"所有货物，<br>都能搭上<em>定期班期</em>",
    "p":"我们在中国威海的集货仓库集中拼装发往韩国的货物。小批量货物也能赶上每周固定截关，直接进入仁川港保税仓库。舱位预订与提单等单证由同一窗口统一处理。",
    "a1":"订舱 · 报价咨询", "a2":"了解海运服务", "l2":"services.html#forwarding",
    "tab":"海运 FCL · LCL"},
