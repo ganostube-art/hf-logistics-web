@@ -9,7 +9,7 @@ PAGE = "about.html"
 M = {
 "ko": dict(title="회사소개 — HF 로지스틱스", crumb="COMPANY", h1="회사소개",
   desc="주식회사 에이치에프로지스틱스 회사 개요, 사업 구조, 사업영역, 연혁. 인천항·인천세관 인접 거점에서 종합물류와 중장비 두 부문을 운영합니다.",
-  lede="컨테이너 한 박스부터 40톤 중장비까지, 인천에서 시작하는 물류. 인천항과 인천세관을 곁에 두고 국제물류주선업과 중장비 운반업을 두 축으로 운영합니다.",
+  lede="화물도 중장비도, 인천에서 시작하는 물류. 인천항과 인천세관을 곁에 두고 국제물류주선업과 중장비 운반업을 두 축으로 운영합니다.",
   ov=("Company Overview","회사 개요","Profile"),
   rows=[("상호","주식회사 에이치에프로지스틱스<br>HF LOGISTICS CO., LTD."),("대표이사","안 규 철"),
         ("설립","2024년 7월"),("소재지","인천광역시 중구 서해대로 342, 풍천빌딩 505호"),
@@ -39,7 +39,7 @@ M = {
 
 "en": dict(title="Company — HF Logistics", crumb="COMPANY", h1="About HF Logistics",
   desc="Company profile, business structure, scope and history of HF Logistics, running freight forwarding and heavy cargo transport from a base next to Incheon Port and Incheon Customs.",
-  lede="From a single container to 40-tonne construction equipment, logistics that starts in Incheon. We run freight forwarding and heavy cargo haulage as two divisions, with Incheon Port and Incheon Customs on our doorstep.",
+  lede="Freight and heavy equipment alike, logistics that starts in Incheon. We run freight forwarding and heavy cargo haulage as two divisions, with Incheon Port and Incheon Customs on our doorstep.",
   ov=("Company Overview","Company overview","Profile"),
   rows=[("Company","HF LOGISTICS CO., LTD."),("CEO","Ahn Gyu-cheol"),
         ("Founded","July 2024"),("Address","#505 Pungcheon Bldg, 342 Seohae-daero, Jung-gu, Incheon, Korea"),
@@ -71,7 +71,7 @@ M = {
 
 "zh": dict(title="公司介绍 — HF物流", crumb="COMPANY", h1="公司介绍",
   desc="HF物流株式会社的公司概况、业务结构、经营范围与发展历程。以毗邻仁川港与仁川海关的据点，运营综合物流与重型设备两大业务。",
-  lede="从一个集装箱到40吨重型设备，物流始于仁川。我们毗邻仁川港与仁川海关，以国际物流运输代理和重型设备运输为两大支柱。",
+  lede="货物与重型设备，物流始于仁川。我们毗邻仁川港与仁川海关，以国际物流运输代理和重型设备运输为两大支柱。",
   ov=("Company Overview","公司概况","Profile"),
   rows=[("公司名称","HF物流株式会社<br>HF LOGISTICS CO., LTD."),("首席执行官","安 圭 哲"),
         ("成立时间","2024年7月"),("地址","韩国仁川广域市中区西海大路342号 丰川大厦505室"),

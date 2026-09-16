@@ -42,19 +42,19 @@ FONTS = {
 CARD = {
     "ko": {
         "eyebrow": "국제물류주선 · 중장비 운반",
-        "head": ["컨테이너 한 박스부터", "40톤 중장비까지"],
+        "head": ["화물도 중장비도", "한 창구에서 끝냅니다"],
         "sub": "인천에서 시작하는 국제물류 · 주식회사 에이치에프로지스틱스",
         "tel": "T. 032-888-0824",
     },
     "en": {
         "eyebrow": "FREIGHT FORWARDING · HEAVY CARGO",
-        "head": ["From one container", "to 40-tonne cargo"],
+        "head": ["All freight,", "all heavy equipment"],
         "sub": "International logistics from Incheon, Korea · HF Logistics Co., Ltd.",
         "tel": "T. +82-32-888-0824",
     },
     "zh": {
         "eyebrow": "国际物流运输 · 重型设备运输",
-        "head": ["从一个集装箱", "到40吨重型设备"],
+        "head": ["货物与重型设备，", "一站式处理"],
         "sub": "物流始于仁川 · HF物流株式会社",
         "tel": "T. +82-32-888-0824",
     },

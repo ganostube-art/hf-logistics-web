@@ -3,9 +3,9 @@
 
 TITLE = {"ko": "HF 로지스틱스", "en": "HF Logistics", "zh": "HF物流"}
 DESC = {
- "ko": "컨테이너 한 박스부터 40톤 중장비까지, 인천에서 시작하는 물류. 국제물류주선과 중장비 운반을 두 축으로 운영하는 주식회사 에이치에프로지스틱스.",
- "en": "From a single container to 40-tonne construction equipment. HF Logistics runs freight forwarding and heavy cargo transport from Incheon, Korea.",
- "zh": "从一个集装箱到40吨重型设备，物流始于仁川。HF物流以国际物流运输代理和重型设备运输为两大支柱。",
+ "ko": "화물도 중장비도, 인천에서 시작하는 물류. 국제물류주선과 중장비 운반을 두 축으로 운영하는 주식회사 에이치에프로지스틱스.",
+ "en": "Freight and heavy equipment alike. HF Logistics runs freight forwarding and heavy cargo transport from Incheon, Korea.",
+ "zh": "货物与重型设备，物流始于仁川。HF物流以国际物流运输代理和重型设备运输为两大支柱。",
 }
 
 # 히어로 3슬라이드
@@ -59,15 +59,15 @@ FACTS = {
  "ko": [("2,600","평","인천항 보세창고 실내면적","야드 1,815평 · 특허보세구역"),
         ("2","곳","보세 반입 거점","인천항 · 인천공항 자유무역지역"),
         ("3","개","중국 집화 거점","위해 운영 중 · 심천 · 항저우 예정"),
-        ("40","톤","중장비까지 단일 창구 처리","소형 택배 화물부터 건설기계까지")],
+        ("77","대","국내 배송 차량 운용","협력사 보유 기준 · 냉장 · 냉동 · 무진동 포함")],
  "en": [("8,600","m²","Indoor bonded warehouse, Incheon Port","Plus 6,000 m² yard · Licensed bonded area"),
         ("2","sites","Bonded entry points","Incheon Port · Incheon Airport FTZ"),
         ("3","hubs","Consolidation hubs in China","Weihai live · Shenzhen &amp; Hangzhou planned"),
-        ("40","t","Handled through one desk","From parcels to construction equipment")],
+        ("77","units","Domestic delivery vehicles","Partner fleet &#183; incl. refrigerated, frozen and air-ride")],
  "zh": [("8,600","㎡","仁川港保税仓库室内面积","另有堆场6,000㎡ · 特许保税区"),
         ("2","处","保税入库据点","仁川港 · 仁川机场自由贸易区"),
         ("3","个","中国集货据点","威海运营中 · 深圳、杭州筹备中"),
-        ("40","吨","最重可单一窗口处理","从小件快递到工程机械")],
+        ("77","辆","韩国境内配送车辆","合作方保有 · 含冷藏、冷冻、无振动车辆")],
 }
 
 # 사업 2축
@@ -241,15 +241,15 @@ CUSTOMS = {
 # 선택 이유
 WHY = {
  "ko": [("인천항 · 인천세관 인접","본사와 운영 거점이 인천 중구에 위치합니다. 컨테이너 화물도, 중장비 부두 반입도 현장 대응 속도가 다릅니다."),
-        ("일반 화물과 중량물을 한 곳에서","소형 택배 화물부터 40톤 건설기계까지 한 회사가 처리합니다. 업체를 나눠 쓰며 책임 공방할 일이 없습니다."),
+        ("일반 화물과 중량물을 한 곳에서","소형 택배 화물도 중장비도 한 회사가 처리합니다. 업체를 나눠 쓰며 책임 공방할 일이 없습니다."),
         ("제도 변화 선제 대응","2026년 전자상거래 통관 개편에 맞춰 검증 · 알림 체계를 갖췄습니다. 제도 리스크를 화주사가 떠안지 않도록 합니다."),
         ("중국 현지부터 국내 현장까지","중장비는 부두에 내려놓는다고 끝이 아닙니다. 공장 상차부터 통관 · 현장 하차까지 한 창구로 갑니다.")],
  "en": [("Next to Incheon Port and Customs","Our head office and operations sit in Jung-gu, Incheon. That proximity shows in how fast we respond, for containers and for heavy equipment alike."),
-        ("General cargo and heavy lift in one place","One company handles everything from small parcels to 40-tonne machines. No splitting work between vendors and no arguments over who is responsible."),
+        ("General cargo and heavy lift in one place","One company handles everything from small parcels to heavy machinery. No splitting work between vendors and no arguments over who is responsible."),
         ("Ahead of regulatory change","We built our verification and alerting workflow for Korea's 2026 e-commerce customs reform, so the regulatory risk does not land on the shipper."),
         ("From the Chinese factory to the Korean site","Heavy equipment is not finished when it lands at the quay. Loading at the factory, clearance and final drop-off all run through one desk.")],
  "zh": [("毗邻仁川港与仁川海关","总部与运营据点位于仁川中区。无论是集装箱货物还是重型设备进港，现场响应速度都不一样。"),
-        ("普货与重件一站处理","从小件快递到40吨工程机械，由一家公司完成。无需分包给多家，也不会出现责任推诿。"),
+        ("普货与重件一站处理","从小件快递到重型设备，由一家公司完成。无需分包给多家，也不会出现责任推诿。"),
         ("提前应对制度变化","已按2026年跨境电商通关改革建立验证与提醒机制，不让制度风险落到货主身上。"),
         ("从中国现场到韩国工地","重型设备卸到码头并不算结束。从工厂装车到通关、现场卸车，全程一个窗口。")],
 }
