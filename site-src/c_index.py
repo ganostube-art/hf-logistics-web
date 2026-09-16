@@ -78,7 +78,7 @@ DIVS = {
          "btn":"서비스 상세","link":"services.html"},
         {"tag":"Division 02","h":"중장비 부문","sub":"중국 공장에서 국내 현장까지, 장비 전용 물류",
          "items":[("중기 · 건설기계 수입 운송","중국 &rarr; 한국"),("중량물 통관 · 요건 관리","수입 요건 확인"),
-                  ("차량 및 중장비 운반업","부두 &rarr; 현장"),("중기 및 건설기계 매매업","거래 및 중개")],
+                  ("차량 및 중장비 운송","부두 &rarr; 현장"),("중기 및 건설기계 매매업","거래 및 중개")],
          "btn":"중장비 상세","link":"heavy.html"}],
  "en": [{"tag":"Division 01","h":"Logistics","sub":"From the international leg to the door in Korea",
          "items":[("Freight forwarding","Sea · Air"),("3PL &amp; fulfilment","Storage · Outbound · Returns"),
@@ -154,7 +154,7 @@ SCHED = {
 # 사업영역 7 + CTA
 SVCS = {
  "ko": [("services.html#forwarding","국제물류주선","Forwarding","해상 · 항공 수출입 운송 주선, 선복 확보 및 서류 일괄 관리"),
-        ("heavy.html","차량 및 중장비 운반업","Heavy Cargo","건설기계의 해상 운송 주선 및 부두에서 현장까지 육상 운송"),
+        ("heavy.html","차량 및 중장비 운송","Heavy Cargo","건설기계의 해상 운송 주선 및 부두에서 현장까지 육상 운송"),
         ("services.html#tpl","제3자물류 (3PL)","Logistics","화주사 물류 기능 전반 위탁 운영, 운송 · 보관 · 재고 · 정산 통합"),
         ("services.html#tpl","풀필먼트","Fulfillment","입고 검수부터 피킹 · 패킹 · 출고, 반품 회수 및 재입고까지"),
         ("heavy.html#requirements","중기 · 건설기계 수출입","Equipment","건설기계 수입 통관 대행 및 장비 매매 · 중개"),

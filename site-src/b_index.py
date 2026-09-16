@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """메인 페이지 조립 — 언어별로 같은 구조에 문구만 바꿔 끼웁니다."""
 import shell, svgart, c_index as C
-from common import COMPANY, CONTACT_BLOCK, QUOTE_BTN, LANGS, MGR
+from common import COMPANY, CONTACT_BLOCK, QUOTE_BTN, LANGS, MGR, mgr_phone
 
 PAGE = "index.html"
 
@@ -163,7 +163,7 @@ def build(lang):
   </div>
 </div></section>
 """ % (S["con"][2], S["con"][0], cb["addr"], co["addr"], cb["tel"], cb["fax"],
-       cb["mgr"], cb["mgrname"], MGR["phone"],
+       cb["mgr"], cb["mgrname"], mgr_phone(lang),
        cb["email"], MGR["email"], MGR["email"],
        cb["toform"], cb["ask"], asks, C.ASK_NOTE[lang])
 

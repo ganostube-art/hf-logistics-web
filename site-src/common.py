@@ -57,7 +57,7 @@ COMPANY = {
            "biz": "Business Reg. No. 865-86-03145", "ceo": "CEO Ahn Gyu-cheol"},
     "zh": {"name": "HF物流株式会社", "short": "HF物流",
            "addr": "韩国仁川广域市中区西海大路342号 丰川大厦505室",
-           "biz": "营业执照号 865-86-03145", "ceo": "首席执行官 安圭哲"},
+           "biz": "营业执照号 865-86-03145", "ceo": "首席执行官 安奎哲"},
 }
 
 # 푸터 메뉴
@@ -107,14 +107,20 @@ FOOT = {
 }
 
 # 담당자 — 이 한 곳만 고치면 전 페이지에 반영됩니다
-MGR = {"phone": "010-3178-8330", "email": "dydw0625@nate.com"}
+MGR = {"phone": "010-3178-8330", "phone_intl": "+82-10-3178-8330",
+       "email": "dydw0625@nate.com"}
+
+
+def mgr_phone(lang):
+    """표시용 담당자 번호. 해외 독자에게는 국가번호를 붙이고 앞의 0을 뺍니다."""
+    return MGR["phone"] if lang == "ko" else MGR["phone_intl"]
 
 # 공통 CTA · 문의 블록
 CONTACT_BLOCK = {
     "ko": {"addr": "주소", "tel": "대표전화", "fax": "팩스", "mgr": "담당", "mgrname": "임민지 부장", "email": "이메일",
            "toform": "견적 요청 폼으로", "ask": "문의 시 알려주시면 빠릅니다"},
-    "en": {"addr": "Address", "tel": "Tel", "fax": "Fax", "mgr": "Contact", "mgrname": "Lim Min-ji, General Manager", "email": "Email",
+    "en": {"addr": "Address", "tel": "Tel", "fax": "Fax", "mgr": "Contact", "mgrname": "Im Min-ji, General Manager", "email": "Email",
            "toform": "Go to quote form", "ask": "Tell us this and we can move faster"},
-    "zh": {"addr": "地址", "tel": "电话", "fax": "传真", "mgr": "负责人", "mgrname": "Lim Min-ji 部长", "email": "邮箱",
+    "zh": {"addr": "地址", "tel": "电话", "fax": "传真", "mgr": "负责人", "mgrname": "Im Min-ji 部长", "email": "邮箱",
            "toform": "前往报价表单", "ask": "告知以下信息可加快处理"},
 }

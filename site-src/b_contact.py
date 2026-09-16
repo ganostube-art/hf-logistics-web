@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """문의처 — 견적 폼 · 오시는 길"""
 import shell
-from common import LANGS, COMPANY, CONTACT_BLOCK, MGR
+from common import LANGS, COMPANY, CONTACT_BLOCK, MGR, mgr_phone
 import c_index as CI
 
 PAGE = "contact.html"
@@ -128,7 +128,7 @@ def build(lang):
 </div></section>
 """ % (m["q"][0], m["q"][1], m["q"][2], m["qnote"],
        cb["addr"], co["addr"], cb["tel"], cb["fax"],
-       cb["mgr"], cb["mgrname"], MGR["phone"], MGR["phone"],
+       cb["mgr"], cb["mgrname"], mgr_phone(lang), mgr_phone(lang),
        cb["email"], MGR["email"], MGR["email"],
        m["hours"][0], m["hours"][1], cb["ask"], asks,
        f["company"], f["name"], f["phone"], f["email"], f["type"], opts,
